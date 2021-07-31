@@ -4,6 +4,7 @@ import s from "./CounterDisplay.module.css";
 type CounterDisplayPropsType = {
     incVal: number
     maxVal: number
+    toBeSet: boolean
 }
 
 export const CounterDisplay = (props: CounterDisplayPropsType) => {
@@ -13,7 +14,8 @@ export const CounterDisplay = (props: CounterDisplayPropsType) => {
     return(
         <div className={s.counterValue}>
             <div className={displayValStyles}>
-                {props.incVal}
+                {/*toBeSet? {props.incVal} : {'Press set'}*/}
+                {props.toBeSet? props.incVal : 'Press set'}
             </div>
         </div>
     )

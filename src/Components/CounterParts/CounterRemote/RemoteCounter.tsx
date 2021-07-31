@@ -5,12 +5,12 @@ type RemoteCounterPropsType = {
     incVal: number
     initialVal: number
     setIncVal: (value: number) => void
+    setToBeSet: (value: boolean) => void
     maxVal: number
+    toBeSet: boolean
 }
 
 export const RemoteCounter = (props: RemoteCounterPropsType) => {
-
-    //const [toDisabled, setToDisabled] = useState(false)
 
     const IncreaseHandler = () => {
         if (props.incVal < props.maxVal) {
@@ -20,13 +20,17 @@ export const RemoteCounter = (props: RemoteCounterPropsType) => {
 
     const ResetHandler = () => {
         props.setIncVal(props.initialVal)
+        props.setToBeSet(false)
     }
 
-    const IncToDisabled = (props.incVal === props.maxVal)
+    // const IncToDisabled = (props.incVal === props.maxVal)
+    const IncToDisabled = !props.toBeSet
     const ResetToDisabled = (props.incVal === props.initialVal)
 
     const incBtnStyle = IncToDisabled? s.counterBtnStyleDisabled : s.counterBtnStyle
     const resetBtnStyle = ResetToDisabled? s.counterBtnStyleDisabled : s.counterBtnStyle
+
+
 
     return (
         <div className={s.remote}>
@@ -41,7 +45,7 @@ export const RemoteCounter = (props: RemoteCounterPropsType) => {
             <div className={s.btnPlace}>
                 <button className={resetBtnStyle}
                         onClick={ResetHandler}
-                        disabled={ResetToDisabled}
+                        disabled={IncToDisabled}
                 >
                     Reset
                 </button>
