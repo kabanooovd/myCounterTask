@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Counter} from "./Components/Counter";
+import {Setter} from "./Components/Setter";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
                      setIncVal={setIncVal}
                      maxVal={maxVal}
             />
+            <Setter />
         </div>
     );
 }
