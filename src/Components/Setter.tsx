@@ -11,11 +11,15 @@ type SetterPropsType = {
     maxValCallBack: (value: number) => void
     minValCallBack: (value: number) => void
     setToBeSet: (value: boolean) => void
+    error: boolean
+    toDisableInput: boolean
+    setToDisableInput: (toDisableInput: boolean) => void
 }
 
 export const Setter = (props: SetterPropsType) => {
 
     const [visibleDisplay, setVisibleDisplay] = useState<boolean>(false)
+
 
     return(
         <div className={s.MainSetterShell}>
@@ -25,9 +29,12 @@ export const Setter = (props: SetterPropsType) => {
                            maxValCallBack={props.maxValCallBack}
                            minValCallBack={props.minValCallBack}
                            visibleDisplay={visibleDisplay}
+                           error={props.error}
+                           toDisableInput={props.toDisableInput}
             />
             <SetterRemote setToBeSet={props.setToBeSet}
                           setVisibleDisplay={setVisibleDisplay}
+                          setToDisableInput={props.setToDisableInput}
             />
         </div>
     )

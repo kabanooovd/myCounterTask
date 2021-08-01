@@ -4,6 +4,7 @@ import s from './SetterRemote.module.css'
 type SetterRemotePropsType = {
     setToBeSet: (value: boolean) => void
     setVisibleDisplay: (visibleDisplay: boolean) => void
+    setToDisableInput: (toDisableInput: boolean) => void
 }
 
 export const SetterRemote = (props: SetterRemotePropsType) => {
@@ -11,6 +12,7 @@ export const SetterRemote = (props: SetterRemotePropsType) => {
     const toSetValues = () => {
         props.setVisibleDisplay(true)
         props.setToBeSet(true)
+        props.setToDisableInput(true)
     }
 
     return(

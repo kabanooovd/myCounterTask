@@ -29,10 +29,19 @@
     font-size: 26px;
 }
 
-input {
+.inputStyle {
     color: yellowgreen;
     background-color: #101f16;
     width: 100px;
+    height: 32px;
+    font-size: 26px;
+    text-align: center;
+}
+.inputStyleError {
+    color: red;
+    background-color: #3a5228;
+    border: 3px solid red;
+    width: 98px;
     font-size: 26px;
     text-align: center;
 }

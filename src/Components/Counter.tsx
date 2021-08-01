@@ -10,6 +10,9 @@ type CounterPropsType = {
     maxVal: number
     toBeSet: boolean
     setToBeSet: (value: boolean) => void
+    error: boolean
+    toDisableInput: boolean
+    setToDisableInput: (toDisableInput: boolean) => void
 }
 
 export const Counter = (props: CounterPropsType) => {
@@ -19,6 +22,7 @@ export const Counter = (props: CounterPropsType) => {
             <CounterDisplay incVal={props.incVal}
                             maxVal={props.maxVal}
                             toBeSet={props.toBeSet}
+                            error={props.error}
             />
 
             <RemoteCounter incVal={props.incVal}
@@ -27,6 +31,8 @@ export const Counter = (props: CounterPropsType) => {
                            initialVal={props.initialVal}
                            setToBeSet={props.setToBeSet}
                            toBeSet={props.toBeSet}
+                           toDisableInput={props.toDisableInput}
+                           setToDisableInput={props.setToDisableInput}
 
             />
         </div>

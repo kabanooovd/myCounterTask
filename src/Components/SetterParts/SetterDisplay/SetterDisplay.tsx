@@ -8,6 +8,8 @@ type SetterDisplayPropsType = {
     maxValCallBack: (value: number) => void
     minValCallBack: (value: number) => void
     visibleDisplay: boolean
+    error: boolean
+    toDisableInput: boolean
 }
 
 export const SetterDisplay = (props: SetterDisplayPropsType) => {
@@ -23,6 +25,8 @@ export const SetterDisplay = (props: SetterDisplayPropsType) => {
 
     const smartStartValue =  !props.visibleDisplay? props.incVal : props.initialVal
 
+    const SettersInputStyles = props.error? s.inputStyleError : s.inputStyle
+
     return (
         <div className={s.setterValue}>
             <div className={s.InputsContainer}>
@@ -34,6 +38,8 @@ export const SetterDisplay = (props: SetterDisplayPropsType) => {
                         <input type="number"
                                value={props.maxVal}
                                onChange={MaxValHandler}
+                               className={SettersInputStyles}
+                               disabled={props.toDisableInput}
                         />
                     </div>
                 </div>
@@ -45,6 +51,8 @@ export const SetterDisplay = (props: SetterDisplayPropsType) => {
                         <input type="number"
                                value={smartStartValue}
                                onChange={InitValHandler}
+                               className={SettersInputStyles}
+                               disabled={props.toDisableInput}
                         />
                     </div>
                 </div>

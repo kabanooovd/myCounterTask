@@ -9,15 +9,26 @@ function App() {
     const [maxVal, setMaxVal] = useState(0)
     const [incVal, setIncVal] = useState(initialVal)
     const [toBeSet, setToBeSet] = useState<boolean>(false)
-
+    const [error, setError] = useState<boolean>(false)
+    const [toDisableInput, setToDisableInput] = useState<boolean>(false)
 
     const maxValCallBack = (value: number) => {
-        setMaxVal(value)
+        if (value < incVal) {
+            setError(true)
+        } else {
+            setMaxVal(value)
+            setError(false)
+        }
     }
 
     const minValCallBack = (value: number) => {
-        setInitialVal(value)
-        setIncVal(value)
+        if (value > maxVal || value < 0) {
+            setError(true)
+        } else {
+            setInitialVal(value)
+            setIncVal(value)
+            setError(false)
+        }
     }
 
     return (
@@ -28,6 +39,9 @@ function App() {
                      maxVal={maxVal}
                      toBeSet={toBeSet}
                      setToBeSet={setToBeSet}
+                     error={error}
+                     toDisableInput={toDisableInput}
+                     setToDisableInput={setToDisableInput}
             />
             <Setter maxVal={maxVal}
                     initialVal={initialVal}
@@ -35,6 +49,9 @@ function App() {
                     maxValCallBack={maxValCallBack}
                     minValCallBack={minValCallBack}
                     setToBeSet={setToBeSet}
+                    error={error}
+                    toDisableInput={toDisableInput}
+                    setToDisableInput={setToDisableInput}
             />
         </div>
     );

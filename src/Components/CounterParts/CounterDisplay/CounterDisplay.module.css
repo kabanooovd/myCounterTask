@@ -8,7 +8,16 @@
     border: 2px solid yellowgreen;
     display: flex;
     justify-content: center;
-
+}
+.displayError {
+    color: #101f16;
+    background-color: #3a5228;
+    margin: 20px auto;
+    width: 448px;
+    height: 153px;
+    border: 8px solid red;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -27,6 +36,13 @@
     align-items: baseline;
     justify-content: center;
 }
+
+.Error {
+    font-size: 100px;
+    color: red;
+}
+
+
 
 
 

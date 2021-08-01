@@ -5,17 +5,22 @@ type CounterDisplayPropsType = {
     incVal: number
     maxVal: number
     toBeSet: boolean
+    error: boolean
 }
 
 export const CounterDisplay = (props: CounterDisplayPropsType) => {
 
+    const Display = props.error? <div className={s.Error}>Error</div> : props.toBeSet? props.incVal : 'Press set'
+
     const displayValStyles = (props.incVal === props.maxVal)? s.theValMax : s.theVal
 
+    const displayFrame = !props.error? s.counterValue : s.displayError
+
     return(
-        <div className={s.counterValue}>
+        <div className={displayFrame}>
             <div className={displayValStyles}>
-                {/*toBeSet? {props.incVal} : {'Press set'}*/}
-                {props.toBeSet? props.incVal : 'Press set'}
+                {/*<div>{props.toBeSet? props.incVal : 'Press set'}</div>*/}
+                <div>{Display}</div>
             </div>
         </div>
     )
