@@ -10,6 +10,7 @@ type RemoteCounterPropsType = {
     toBeSet: boolean
     toDisableInput: boolean
     setToDisableInput: (toDisableInput: boolean) => void
+    setToDisableSetBtn: (toDisableSetBtn: boolean) => void
 }
 
 export const RemoteCounter = (props: RemoteCounterPropsType) => {
@@ -24,6 +25,7 @@ export const RemoteCounter = (props: RemoteCounterPropsType) => {
         props.setIncVal(props.initialVal)
         props.setToBeSet(false)
         props.setToDisableInput(!props.toDisableInput)
+        props.setToDisableSetBtn(false)
     }
 
     const IncToDisabled = !props.toBeSet || (props.incVal === props.maxVal)

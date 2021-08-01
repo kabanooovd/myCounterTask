@@ -14,6 +14,8 @@ type SetterPropsType = {
     error: boolean
     toDisableInput: boolean
     setToDisableInput: (toDisableInput: boolean) => void
+    toDisableSetBtn: boolean
+    setToDisableSetBtn: (toDisableSetBtn: boolean) => void
 }
 
 export const Setter = (props: SetterPropsType) => {
@@ -35,6 +37,8 @@ export const Setter = (props: SetterPropsType) => {
             <SetterRemote setToBeSet={props.setToBeSet}
                           setVisibleDisplay={setVisibleDisplay}
                           setToDisableInput={props.setToDisableInput}
+                          toDisableSetBtn={props.toDisableSetBtn}
+                          setToDisableSetBtn={props.setToDisableSetBtn}
             />
         </div>
     )

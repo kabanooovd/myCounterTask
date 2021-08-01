@@ -5,6 +5,8 @@ type SetterRemotePropsType = {
     setToBeSet: (value: boolean) => void
     setVisibleDisplay: (visibleDisplay: boolean) => void
     setToDisableInput: (toDisableInput: boolean) => void
+    toDisableSetBtn: boolean
+    setToDisableSetBtn: (toDisableSetBtn: boolean) => void
 }
 
 export const SetterRemote = (props: SetterRemotePropsType) => {
@@ -13,13 +15,17 @@ export const SetterRemote = (props: SetterRemotePropsType) => {
         props.setVisibleDisplay(true)
         props.setToBeSet(true)
         props.setToDisableInput(true)
+        props.setToDisableSetBtn(!props.toDisableSetBtn)
     }
+
+    const setButtonStyle = !props.toDisableSetBtn? s.setBtn : s.setBtnDisabled
 
     return(
         <div className={s.remote}>
             <div>
-                <button className={s.setBtn}
+                <button className={setButtonStyle}
                         onClick={toSetValues}
+                        disabled={props.toDisableSetBtn}
                 >
                     SET
                 </button>

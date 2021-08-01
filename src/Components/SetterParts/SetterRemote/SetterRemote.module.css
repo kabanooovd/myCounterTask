@@ -16,8 +16,14 @@
     height: 50px;
     font-size: 30px;
     font-weight: bold;
-
-
-
-
+}
+.setBtnDisabled {
+    opacity: 0.5;
+    margin-top: 60px;
+    color: #101f16;
+    background-color: yellowgreen;
+    width: 170px;
+    height: 50px;
+    font-size: 30px;
+    font-weight: bold;
 }
