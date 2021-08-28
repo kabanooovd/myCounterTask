@@ -1,0 +1,21 @@
+.SetterDisplayStile {
+    border: 2px solid #0af54c;
+    width: 220px;
+    margin: 12px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.SetterInputItemStile {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputsPositionStyles {
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+}
