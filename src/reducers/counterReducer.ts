@@ -32,6 +32,7 @@ export const counterReducer = (state: CounterStateType = initialCounterState, ac
             return {...state, initialValue: action.initCounterVal, maxValue: action.finalCounterVal}
         }
 
+
         default: return state
     }
 }

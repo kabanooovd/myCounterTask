@@ -17,7 +17,7 @@ export function CounterDisplay () {
     return (
         <div className={s.CounterDisplayStile}>
             <div className={currentValStyle}>
-                {CounterValue.currentValue}
+                <h2>{CounterValue.currentValue}</h2>
             </div>
         </div>
     );

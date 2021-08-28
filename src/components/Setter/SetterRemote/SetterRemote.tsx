@@ -15,7 +15,10 @@ export function SetterRemote () {
     const dispatch = useDispatch()
 
     const setterData = useSelector<RootReducersType, SetterStateType>(state => state.setterReducer )
-    //const currentAppMode = useSelector<RootReducersType, SetterStateType>(state => state.setterReducer).currentAppMode
+
+    const updateCounterState = () => {
+        dispatch({type: 'ZERO-SETTER'})
+    }
 
     const setCounterParams = () => {
         dispatch(changeCounterRangeAC(setterData.initCounterVal, setterData.finalCounterVal))
@@ -25,6 +28,9 @@ export function SetterRemote () {
 
     return (
         <div className={s.CounterRemoteStile}>
+                <SupperButton buttonName={'ZERO'}
+                              onClick={updateCounterState}
+                />
                 <SupperButton buttonName={'START'}
                               onClick={setCounterParams}
                 />

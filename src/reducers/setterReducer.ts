@@ -13,7 +13,9 @@ const initialState: SetterStateType = {
     currentAppMode: 'setter'
 }
 
-export type MainSetterActionType = changeInitValACType | changeFinalValACType | currentAppModeActionType
+export type MainSetterActionType =  changeInitValACType         | changeFinalValACType |
+                                    currentAppModeActionType    | ZeroSetterActionType
+
 export const setterReducer = (state: SetterStateType = initialState, action: MainSetterActionType): SetterStateType => {
     switch (action.type) {
         case 'CHANGE-INIT-VAL': {
@@ -25,10 +27,15 @@ export const setterReducer = (state: SetterStateType = initialState, action: Mai
         case 'SET-APP-MODE': {
             return {...state, currentAppMode: action.updateAppMode}
         }
+        case 'ZERO-SETTER': {
+            return {...state, initCounterVal: 0, finalCounterVal: 0}
+        }
 
         default : return state
     }
 }
+
+type ZeroSetterActionType = {type: 'ZERO-SETTER'}
 
 export type currentAppModeActionType = {type: 'SET-APP-MODE', updateAppMode: CurrentAppModeType}
 

@@ -1,4 +1,10 @@
-import {changeCounterRangeAC, counterReducer, CounterStateType, incCountAC, resetCountAC} from "./counterReducer";
+import {
+    changeCounterRangeAC,
+    counterReducer,
+    CounterStateType,
+    incCountAC,
+    resetCountAC
+} from "./counterReducer";
 
 
 test('the count should be increased', () => {
@@ -32,3 +38,5 @@ test('init & max values should be changed', () => {
     expect(finalState.initialValue).toEqual(1)
     expect(finalState.maxValue).toEqual(4)
 })
+
+
