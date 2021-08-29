@@ -23,6 +23,9 @@ export function SetterDisplayContainer () {
         stepValue >= 0 && dispatch(changeStepAC(stepValue))
     }
 
+    const stepToDisabled = SetterState.finalCounterVal > 0
+    const maxInitInputsToDisabled = SetterState.counterStep === 0
+
     return <SetterDisplay   stepValue={SetterState.counterStep}
                             stepOnChangeVal={changeCounterStepHandler}
                             maxInputValue={SetterState.finalCounterVal}
@@ -31,6 +34,9 @@ export function SetterDisplayContainer () {
                             initInputValue={SetterState.initCounterVal}
                             initInputOnChange={changeInitCounterValHandler}
                             initInputStep={SetterState.counterStep}
+                            initInputDisabled={maxInitInputsToDisabled}
+                            maxInputDisabled={maxInitInputsToDisabled}
+                            stepInputDisabled={stepToDisabled}
     />
 }
 

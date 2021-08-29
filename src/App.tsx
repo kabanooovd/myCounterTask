@@ -5,9 +5,8 @@ import {Setter} from "./components/Setter/Setter";
 import {useSelector} from "react-redux";
 import {RootReducersType} from "./store/store";
 import {SetterStateType} from "./reducers/setterReducer";
-
-// background-color: #08081c;
-// color: #0af54c;
+import {Clock} from "./components/DateComponents/Clock";
+import {CurrentDate} from "./components/DateComponents/CurrentDate";
 
 function App() {
 
@@ -17,6 +16,7 @@ function App() {
         <div className="App">
             {currentAppMode === 'setter' && <div><Setter /></div>}
             {currentAppMode === 'counter' && <div><Counter /></div>}
+            <div><Clock/></div>  <div><CurrentDate /></div>
         </div>
     );
 }

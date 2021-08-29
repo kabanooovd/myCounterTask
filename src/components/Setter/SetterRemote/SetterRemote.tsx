@@ -6,10 +6,6 @@ import {RootReducersType} from "../../../store/store";
 import {changeCounterRangeAC, resetCountAC} from "../../../reducers/counterReducer";
 import {SetterStateType} from "../../../reducers/setterReducer";
 
-
-// background-color: #08081c;
-// color: #0af54c;
-
 export function SetterRemote () {
 
     const dispatch = useDispatch()
@@ -26,13 +22,18 @@ export function SetterRemote () {
         dispatch({type: 'SET-APP-MODE', updateAppMode: 'counter'})
     }
 
+    const disabledToStartBtn = setterData.finalCounterVal === 0
+    const disabledToZeroBtn = setterData.counterStep === 0
+
     return (
         <div className={s.CounterRemoteStile}>
                 <SupperButton buttonName={'ZERO'}
                               onClick={updateCounterState}
+                              disabled={disabledToZeroBtn}
                 />
                 <SupperButton buttonName={'START'}
                               onClick={setCounterParams}
+                              disabled={disabledToStartBtn}
                 />
         </div>
     );

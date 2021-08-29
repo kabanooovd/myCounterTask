@@ -12,6 +12,9 @@ type SetterDisplayType = {
     initInputValue: number
     initInputOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     initInputStep: number
+    initInputDisabled: boolean
+    maxInputDisabled: boolean
+    stepInputDisabled: boolean
 }
 
 export const SetterDisplay: React.FC<SetterDisplayType> = props => {
@@ -24,7 +27,10 @@ export const SetterDisplay: React.FC<SetterDisplayType> = props => {
         maxInputStep,
         initInputValue,
         initInputOnChange,
-        initInputStep
+        initInputStep,
+        stepInputDisabled,
+        maxInputDisabled,
+        initInputDisabled
     } = props
 
     return (
@@ -35,6 +41,7 @@ export const SetterDisplay: React.FC<SetterDisplayType> = props => {
                     <NumInput value={stepValue}
                               onChange={stepOnChangeVal}
                               step={1}
+                              disabled={stepInputDisabled}
                     />
                 </div>
             </div>
@@ -44,6 +51,7 @@ export const SetterDisplay: React.FC<SetterDisplayType> = props => {
                     <NumInput value={maxInputValue}
                               onChange={maxInputOnChange}
                               step={maxInputStep}
+                              disabled={maxInputDisabled}
                     />
                 </div>
             </div>
@@ -53,6 +61,7 @@ export const SetterDisplay: React.FC<SetterDisplayType> = props => {
                     <NumInput value={initInputValue}
                               onChange={initInputOnChange}
                               step={initInputStep}
+                              disabled={initInputDisabled}
                     />
                 </div>
             </div>

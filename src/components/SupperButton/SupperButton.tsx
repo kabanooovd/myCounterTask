@@ -3,24 +3,40 @@ import React from "react";
 type SupperButtonPropsType = {
     buttonName: string
     onClick: () => void
+    disabled: boolean
 }
 
 export const SupperButton = (props: SupperButtonPropsType) => {
 
-    const SupperButtonStyle: any = {
+    const SupperNotDisabled: any = {
         textAlign: 'Center',
         backgroundColor: '#0af54c',
         color: '#08081c',
-        width: '50px',
+        width: '70px',
         fontWeight: 'bold',
         cursor: 'pointer',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        border: '1px solid #0af54c',
+        //opacity: '0.5'
+    }
+    const SupperButtonDisabled: any = {
+        textAlign: 'Center',
+        backgroundColor: '#0af54c',
+        color: '#08081c',
+        width: '70px',
+        fontWeight: 'bold',
+        cursor: 'pointer',
+        textDecoration: 'none',
+        border: '1px solid #0af54c',
+        opacity: '0.5'
     }
 
+    const buttonStyle = props.disabled ? SupperButtonDisabled : SupperNotDisabled
+
     return (
-        <div style={SupperButtonStyle} onClick={props.onClick}>
+        <button style={buttonStyle} onClick={props.onClick} disabled={props.disabled}>
             {props.buttonName}
-        </div>
+        </button>
     )
 }
 
