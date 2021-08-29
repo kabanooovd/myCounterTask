@@ -43,13 +43,15 @@ test('app mode have to be switched', () => {
 
 test('setter state have to be zeroed', () => {
     const initialState: SetterStateType = {
-        initCounterVal: 0,
-        finalCounterVal: 0,
-        counterStep: 1,
+        initCounterVal: 2,
+        finalCounterVal: 34,
+        counterStep: 2,
         currentAppMode: 'setter'
     }
     const finalState = setterReducer(initialState, {type: 'ZERO-SETTER'})
-    expect(finalState).toEqual(initialState)
+    expect(finalState.initCounterVal).toEqual(0)
+    expect(finalState.finalCounterVal).toEqual(0)
+    expect(finalState.counterStep).toEqual(0)
 })
 
 test('Counter step should be changed', () => {
