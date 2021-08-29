@@ -1,54 +1,61 @@
-import React from 'react';
-import s from './SetterDisplay.module.css'
+import React from "react";
+import s from "./SetterDisplay.module.css";
 import {NumInput} from "../../NumInput/NumInput";
-import {useDispatch, useSelector} from "react-redux";
-import {changeFinalValAC, changeInitValAC, SetterStateType} from "../../../reducers/setterReducer";
-import {RootReducersType} from "../../../store/store";
 
-// background-color: #08081c;
-// color: #0af54c;
 
-export function SetterDisplay () {
+type SetterDisplayType = {
+    stepValue: number
+    stepOnChangeVal: (e: React.ChangeEvent<HTMLInputElement>) => void
+    maxInputValue: number
+    maxInputOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    maxInputStep: number
+    initInputValue: number
+    initInputOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    initInputStep: number
+}
 
-    const dispatch = useDispatch()
+export const SetterDisplay: React.FC<SetterDisplayType> = props => {
 
-    const CurrentSetterVal = useSelector<RootReducersType, SetterStateType>(state => state.setterReducer)
-
-    const changeFinalCounterValHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const setterFinalVal = +e.currentTarget.value
-        dispatch(changeFinalValAC(setterFinalVal))
-    }
-    const changeInitCounterValHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const setterInitVal = +e.currentTarget.value
-        dispatch(changeInitValAC(setterInitVal))
-    }
+    const{
+        stepValue,
+        stepOnChangeVal,
+        maxInputValue,
+        maxInputOnChange,
+        maxInputStep,
+        initInputValue,
+        initInputOnChange,
+        initInputStep
+    } = props
 
     return (
         <div className={s.SetterDisplayStile}>
             <div className={s.SetterInputItemStile}>
                 <div className={s.inputsPositionStyles}>
-                    <span>Max value</span>
-
-                    <NumInput value={CurrentSetterVal.finalCounterVal}
-                              onChange={changeFinalCounterValHandler}
+                    <span>Set step</span>
+                    <NumInput value={stepValue}
+                              onChange={stepOnChangeVal}
+                              step={1}
                     />
-
-
+                </div>
+            </div>
+            <div className={s.SetterInputItemStile}>
+                <div className={s.inputsPositionStyles}>
+                    <span>Max value</span>
+                    <NumInput value={maxInputValue}
+                              onChange={maxInputOnChange}
+                              step={maxInputStep}
+                    />
                 </div>
             </div>
             <div className={s.SetterInputItemStile}>
                 <div className={s.inputsPositionStyles}>
                     <span>Init value</span>
-
-                    <NumInput value={CurrentSetterVal.initCounterVal}
-                              onChange={changeInitCounterValHandler}
+                    <NumInput value={initInputValue}
+                              onChange={initInputOnChange}
+                              step={initInputStep}
                     />
-
-
                 </div>
             </div>
         </div>
-    );
+    )
 }
-
-

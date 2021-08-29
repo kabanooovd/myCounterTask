@@ -3,6 +3,7 @@ import React from "react";
 type NumInputPropsType = {
     value: number
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    step: number
 }
 
 export const NumInput = (props: NumInputPropsType) => {
@@ -22,6 +23,7 @@ export const NumInput = (props: NumInputPropsType) => {
                    style={NumInputStyle}
                    value={props.value}
                    onChange={props.onChange}
+                   step={props.step}
             />
         </>
     )

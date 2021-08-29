@@ -10,7 +10,7 @@ export type CounterStateType = {
 const initialCounterState = {
     initialValue: 0,
     maxValue: 5,
-    currentValue: 0
+    currentValue: 0,
 }
 
 export type MainCounterActionType = incCountACType | resetCountACType | changeCounterRangeACType

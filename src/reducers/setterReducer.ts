@@ -4,17 +4,20 @@ export type CurrentAppModeType = 'setter' | 'counter'
 export type SetterStateType = {
     initCounterVal: number
     finalCounterVal: number
+    counterStep: number
     currentAppMode: CurrentAppModeType
 }
 
 const initialState: SetterStateType = {
     initCounterVal: 0,
     finalCounterVal: 0,
+    counterStep: 0,
     currentAppMode: 'setter'
 }
 
-export type MainSetterActionType =  changeInitValACType         | changeFinalValACType |
-                                    currentAppModeActionType    | ZeroSetterActionType
+export type MainSetterActionType =  changeInitValACType         | changeFinalValACType      |
+                                    currentAppModeActionType    | ZeroSetterActionType      |
+                                    changeStepACType
 
 export const setterReducer = (state: SetterStateType = initialState, action: MainSetterActionType): SetterStateType => {
     switch (action.type) {
@@ -28,14 +31,22 @@ export const setterReducer = (state: SetterStateType = initialState, action: Mai
             return {...state, currentAppMode: action.updateAppMode}
         }
         case 'ZERO-SETTER': {
-            return {...state, initCounterVal: 0, finalCounterVal: 0}
+            return {...state, initCounterVal: 0, finalCounterVal: 0, counterStep: 0}
+        }
+        case 'CHANGE-COUNTER-STEP': {
+            return {...state, counterStep: action.step}
         }
 
         default : return state
     }
 }
 
-type ZeroSetterActionType = {type: 'ZERO-SETTER'}
+export type changeStepACType = ReturnType<typeof changeStepAC>
+export const changeStepAC = (step: number) => {
+    return {type: 'CHANGE-COUNTER-STEP', step} as const
+}
+
+export type ZeroSetterActionType = {type: 'ZERO-SETTER'}
 
 export type currentAppModeActionType = {type: 'SET-APP-MODE', updateAppMode: CurrentAppModeType}
 

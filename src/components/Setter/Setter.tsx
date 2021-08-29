@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Setter.module.css'
-import {SetterDisplay} from "./SetteDisplay/SetterDisplay";
+import {SetterDisplayContainer} from "./SetteDisplay/SetterDisplayContainer";
 import {SetterRemote} from "./SetterRemote/SetterRemote";
 
 // background-color: #08081c;
@@ -9,7 +9,7 @@ import {SetterRemote} from "./SetterRemote/SetterRemote";
 export function Setter () {
     return (
         <div className={s.MainSetterWrapper}>
-            <SetterDisplay />
+            <SetterDisplayContainer />
             <SetterRemote />
         </div>
     );
